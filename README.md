@@ -42,7 +42,10 @@ If JSONPath `p` is selector `s` followed by JSONPath `t`, then for all JSON valu
 ```
 Question: do we need to use something like quasi quotes to clarify the above?
 
-## dot child
+## selectors
+
+The following sections describe primitive selectors which can be strung together to form a JSONPath.
+### dot child
 If `o` is a JSON object which does not have key `k`, then:
 ```
 <o>.k = <>
@@ -52,12 +55,12 @@ and:
 <o ∪ {k:v}>.k = <v>
 ```
 
-## union
+### union
 ```
 <a>[u, v] = (<a>[u]) ^ (<a>[v])
 ```
 
-## bracket child
+### bracket child
 If `o` is a JSON object which does not have key `k` (for certain forms of k...), then:
 ```
 <o>[k] = <>
@@ -67,7 +70,7 @@ and:
 <o ∪ {k:v}>[k] = <v>
 ```
 
-## array slice
+### array slice
 If `a` is an array, then:
 ```
 ... details! ...
@@ -78,7 +81,7 @@ If `a` is not an array and `sl` is a slice expression, then:
 <a>[sl] = <>
 ```
 
-## recursive descent
+### recursive descent
 If `z` is a scalar:
 ```
 <z>.. = <z>
